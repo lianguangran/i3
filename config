@@ -16,6 +16,7 @@
 #####################################
 
 exec_always --no-startup-id $HOME/.config/i3/polybar/launch.sh &
+exec_always --no-startup-id $HOME/.config/i3/conky/start_conky_maia
 exec_always --no-startup-id /usr/lib/gsd-xsettings &
 exec --no-startup-id /usr/lib/xfce-polkit/xfce-polkit &
 exec --no-startup-id dunst &
@@ -26,10 +27,11 @@ exec --no-startup-id blueberry-tray &
 exec --no-startup-id compton -b &
 exec --no-startup-id xfce4-power-manager &
 exec --no-startup-id nm-applet &
+# exec --no-startup-id feh --recursive --randomize --bg-scale $HOME/Pictures/wallpapers &
 exec --no-startup-id volumeicon &
+exec --no-startup-id kdeconnect-indicator &
 exec --no-startup-id onedrive -m &
 exec --no-startup-id $HOME/.config/i3/wallpaper/wp-autochange.sh
-exec --no-startup-id $HOME/.config/i3/conky/start_conky_maia
 
 #####################################
 #
@@ -79,7 +81,7 @@ client.background	#ffffff88
 # 窗口间隔
 gaps inner 10
 gaps outer 5
-# smart_gaps on
+smart_gaps on
 set $default_gaps_inner 8
 set $default_gaps_outer -4
 
@@ -101,6 +103,22 @@ bindsym $mod+m bar mode toggle
 #####################################
 
 set $mod Mod4
+
+#####################################
+#
+# 字体间距
+#
+#####################################
+
+font pango:monospace 12
+
+#####################################
+#
+# 字体设置
+#
+#####################################
+
+font pango:DejaVu Sans Mono 12
 
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -143,8 +161,8 @@ bindsym $mod+Shift+q kill
 #
 #####################################
 
-bindsym $mod+d exec rofi -show drun -theme $HOME/.config/i3/rofi/rofi-theme
-bindsym $mod+Tab exec rofi -show window -theme $HOME/.config/i3/rofi/rofi-theme
+bindsym $mod+d exec rofi -show drun -theme rofi-theme
+bindsym $mod+Tab exec rofi -show window -theme rofi-theme
 #bindsym $mod+d exec rofi -show drun
 #bindsym $mod+Tab exec rofi -show window
 
@@ -356,8 +374,8 @@ bindsym $mod+r mode "resize"
 #bar {
     #i3bar_command i3bar -t
     #position top
-    ##status_command py3status -c $HOME/.config/py3status/config
-    ##status_command conky -c $HOME/.config/i3/conky
+    #status_command py3status -c $HOME/.config/i3/py3status/config
+    #status_command conky -c $HOME/.config/i3/conky
     #colors {
         #background #00000088
         #statusline #ffffff

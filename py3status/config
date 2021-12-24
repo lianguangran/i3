@@ -1,0 +1,60 @@
+general {
+        colors = true
+        interval = 5
+}
+
+#order += "mpd_status"
+#mpd_status {
+#
+#}
+
+#order += "net_rate"
+#net_rate {
+#    cache_timeout = 1
+#    format = "{up}↑{down}↓"
+#    hide_if_zero = true
+#}
+
+# display up/down speed and up/down total
+order += "conky network"
+conky network {
+    format = '[\?color=title {upspeed wlp1s0}↑ {downspeed wlp1s0}↓]'
+    color_title = '#ff6699'
+}
+
+#order += "net_iplist"
+#net_iplist {
+#    format = "{format_iface}"
+#    format_iface = "{ip4}"
+#}
+
+# display ip address
+order += "conky addr"
+conky addr {
+    format = "[\?color=orange {addr wlp1s0}]"
+}
+
+order += "sysdata"
+sysdata {
+    format = " {cpu_used_percent}%  {mem_used}G/{mem_total}G({mem_used_percent}%)"
+}
+
+order += "battery_level"
+battery_level {
+    cache_timeout = 5
+    charging_character = ""
+    blocks = "     "
+    format = "[\?if=percent=100  |{icon} ]{percent}%[\?if=percent!=100|({time_remaining})]"
+    hide_seconds = true
+}
+
+order += "time"
+time {
+    format = " %Y-%m-%d %H:%M:%S"
+}
+
+#order += "arch_updates"
+#arch_updates {
+#    format = " {total}"
+#    hide_if_zero = true
+#}
